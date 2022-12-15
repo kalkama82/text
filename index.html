@@ -6,28 +6,31 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 
- <style> @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap'); </style>
+ <style> @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+	 @keyframes blink-effect { 50% { opacity: 0; } } ;
+	</style>
 	
 	
 </head>
 
 <body>
- 
-	
-    <body style="background-color:#d4d4d4">
-<style>
-/* 텍스트 깜빡임 */
-@keyframes blink-effect { 50% { opacity: 0; } } 
-.blink { 
-    animation: blink-effect 1s step-end infinite; 
-    /* 
-        animation-name: blink-effect; 
-        animation-duration: 1s; 
-        animation-iteration-count:infinite; 
-        animation-timing-function:step-end; 
-    */ 
+ 	
+<SCRIPT>
+
+function doBlink() {
+  var blink = document.all.tags("BLINK")
+  for (var i=0; i < blink.length; i++)
+    blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : ""
 }
 
+function startBlink() {  // Make sure it is IE4
+if (document.all)
+    setInterval("doBlink()",100)
+}
+
+window.onload = startBlink;
+
+</SCRIPT>
 	
 	
 	    
@@ -40,7 +43,7 @@ line-height: 1.0em;
 color: red;
 font-family: 'Zen Dots', cursive;
 ">
-	<MARQUEE>WARNNIG!!-USAG Humphreys road conditions are AMBER due to icy patches on side roads. Please exercise caution during your commute.</MARQUEE>
+	<BLINK><MARQUEE>WARNNIG!! - USAG Humphreys road conditions are AMBER due to icy patches on side roads. Please exercise caution during your commute.</MARQUEE></BLINK>
 
 
 		    
