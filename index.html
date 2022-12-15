@@ -14,20 +14,18 @@
 
 <body>
  	
-<SCRIPT>
-
-function doBlink() {
-  var blink = document.all.tags("BLINK")
-  for (var i=0; i < blink.length; i++)
-    blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : ""
-}
-
-function startBlink() {  // Make sure it is IE4
-if (document.all)
-    setInterval("doBlink()",100)
-}
-
-window.onload = startBlink;
+<script language="JavaScript">
+	 function doBlink() {
+		 var blink=document.all.tags("BLINK")
+		 for (var i=0; i<blink.lengthi++)
+		 blink[i].style.visiblity=blink[i].style.visiblity==""?"hidden":""
+	 }
+	 function startBlink(){
+		 if (document.all)
+		 setInterval("doBlink()",350)
+	 }
+	 window.onload=startBlink;
+	 </script>
 
 
 	
@@ -48,6 +46,5 @@ font-family: 'Zen Dots', cursive;
 		    
 </span>	   
 </style>
-</SCRIPT>
 </body>
 </html>
