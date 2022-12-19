@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Live Weather Data</title>
+  <style>
+    .weather-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #869aa0;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+      text-align: right;
+    }
+
+    .weather-card img {
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    .weather-card h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .weather-card p {
+      font-size: 15px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="weather-data">
+    <!-- Weather card will be displayed here -->
+  </div>
+  <script>
+    // Replace YOUR_API_KEY with your actual API key
+    const API_KEY = 'b96ecad079ec1f320674189a9f44960f';
+
+    // Replace YOUR_CITY_ID with the ID of the city you want to get weather data for
+    const CITY_ID = '1838343';
+
+    // Set the unit system to imperial
+    const UNIT_SYSTEM = 'imperial';
+
+    // Make an API call to get the weather data
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=${UNIT_SYSTEM}&appid=${API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        // Create the weather card HTML
+        const weatherCard = `
+          <div class="weather-card">
+            <img src="https://kalkama82.github.io/text/army.gif" alt="Image" >
+            <div>
+              <h1>Humphreys, Pyeontaek - ${data.weather[0].description}</h1>
+              <p>Temperature: ${data.main.temp.toFixed(1)}°F</p>
+              <p>Humidity: ${data.main.humidity.toFixed(1)}%</p>
+              
+            </div>
+          </div>
+        `;
+
+        // Insert the weather card into the weather-data div
+        document.getElementById('weather-data').innerHTML = weatherCard;
+      });
+  </script>
+</body>
+</html>
