@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Weather Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 0;
+      background-color: transparent;
+      color: black;
+    }
+
+    h1,
+    p {
+      text-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.2);
+      font-size: 15px;
+    }
+
+    h1 {
+      margin-bottom: 2.5px;
+    }
+
+    p {
+      margin-bottom: 2.5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="weather-data">
+    <!-- Weather data will be displayed here -->
+  </div>
+  <script>
+    // Replace YOUR_API_KEY with your actual API key
+    const API_KEY = 'b96ecad079ec1f320674189a9f44960f';
+
+    // Replace YOUR_CITY_ID with the ID of the city you want to get weather data for
+    const CITY_ID = '1838343';
+
+    // Set the unit system to imperial
+    const UNIT_SYSTEM = 'imperial';
+
+    // Make an API call to get the weather data
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=${UNIT_SYSTEM}&appid=${API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        // Get the weather data and display it in the weather-data div
+        const weatherData = `
+          <h1>Humphreys, Pyeongtaek - ${data.weather[0].description}</h1>
+          <p>Temperature: ${data.main.temp.toFixed(1)}°F</p>
+          <p>Humidity: ${data.main.humidity.toFixed(1)}%</p>
+         
+        `;
+        document.getElementById('weather-data').innerHTML = weatherData;
+      });
+  </script>
+</body>
+</html>
