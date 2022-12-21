@@ -14,10 +14,6 @@
       text-align: right;
     }
 
-    .weather-card img {
-      width: 80px;
-      margin-right: 10px;
-    }
 
     .weather-card h1 {
       font-size: 20px;
@@ -51,7 +47,7 @@
         // Create the weather card HTML
         const weatherCard = `
           <div class="weather-card">
-            <img src="https://kalkama82.github.io/text/army.gif" alt="Image" >
+          
             <div>
               <h1>Humphreys, Pyeontaek - ${data.weather[0].description}</h1>
               <p>Temperature: ${data.main.temp.toFixed(1)}°F</p>
